@@ -12,25 +12,27 @@ public class Principal {
         int[] contFichasJugador2={0};
         
         while(!tablero.existeGanador()) {
-            System.out.println(tablero.toString());
-            turnoJugador(1,contFichasJugador1,tablero);
-            System.out.println(tablero.toString());
+            mostrarTablero(tablero);
+            ejecutarturnoJugador(1,contFichasJugador1,tablero);
+            mostrarTablero(tablero);
             if (tablero.existeGanador())
                 break;
-            turnoJugador(2,contFichasJugador2,tablero);
-            System.out.println(tablero.toString());
+            ejecutarturnoJugador(2,contFichasJugador2,tablero);
+            mostrarTablero(tablero);
         }
-        
         System.out.println("JUEGO TERMINADO, HAY UN GANADOR");     
     }
     
+    public static void mostrarTablero(Tablero tablero) {
+        System.out.println(tablero.toString());
+    }
     public static int pedirPosicion() {
         Scanner teclado = new Scanner(System.in);
         int pos = teclado.nextInt();
         return pos;
     }
     
-    public static void turnoJugador(int jugador, int[] contFichasJugador, Tablero tablero) {
+    public static void ejecutarturnoJugador(int jugador, int[] contFichasJugador, Tablero tablero) {
         System.out.println("TURNO JUGADOR " + jugador);
         if (contFichasJugador[0]<3) {
             int pos = 0;
